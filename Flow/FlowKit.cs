@@ -12,5 +12,5 @@ public static class FlowKit
     /// </summary>
     /// <param name="path">Path to log file.</param>
     /// <returns></returns>
-    public static FileLoggerBuiler ForFile(string path) => new(path);
+    public static LoggerFactory Create() => new();
 }

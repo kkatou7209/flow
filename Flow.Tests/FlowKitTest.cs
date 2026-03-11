@@ -10,7 +10,7 @@ public sealed class FlowKitTest : IDisposable
     [Fact]
     public void Should_Create_FileLogger()
     {
-        var logger = FlowKit.ForFile(path)
+        var logger = FlowKit.Create().ForFile(path)
             .WithAllocationSize(1000000)
             .WithBufferSize(64_000)
             .WithCapacity(30_000)
