@@ -1,7 +1,7 @@
 using System.Text;
-using Flow.FileLoggers;
+using Flow.Loggers.Files;
 
-namespace Flow.Tests.FileLoggers;
+namespace Flow.Tests.Loggers.Files;
 
 public sealed class FileLoggerTest : IDisposable
 {
@@ -93,7 +93,7 @@ public sealed class FileLoggerTest : IDisposable
 
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
     }
-    
+
     public void Dispose()
     {
         if (File.Exists(path)) File.Delete(path);

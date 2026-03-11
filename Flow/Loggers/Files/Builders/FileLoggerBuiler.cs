@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Flow.FileLoggers.Builders;
+namespace Flow.Loggers.Files.Builders;
 
 /// <summary>
 /// Builder of FileLogger.

@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Flow.FileLoggers;
+namespace Flow.Loggers.Files;
 
 /// <summary>
 /// Logger that logs to file.

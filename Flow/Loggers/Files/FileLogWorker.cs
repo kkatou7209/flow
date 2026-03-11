@@ -1,7 +1,7 @@
 using System.Text;
 using System.Threading.Channels;
 
-namespace Flow.FileLoggers;
+namespace Flow.Loggers.Files;
 
 /// <summary>
 /// Log worker for file logging.

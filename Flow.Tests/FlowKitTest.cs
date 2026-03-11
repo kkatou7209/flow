@@ -1,5 +1,5 @@
 using System.Text;
-using Flow.FileLoggers;
+using Flow.Loggers.Files;
 
 namespace Flow.Tests;
 

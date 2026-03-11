@@ -1,9 +1,9 @@
 using System.Text;
-using Flow.FileLoggers;
+using Flow.Loggers.Files;
 
 using SystemFile = System.IO.File;
 
-namespace Flow.Tests.FileLoggers;
+namespace Flow.Tests.Loggers.Files;
 
 public sealed class FileLogWorkerTest : IDisposable
 {

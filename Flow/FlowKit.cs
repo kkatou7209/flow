@@ -1,4 +1,4 @@
-using Flow.FileLoggers.Builders;
+using Flow.Loggers.Files.Builders;
 
 namespace Flow;
 
