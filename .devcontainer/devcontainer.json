@@ -7,9 +7,8 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-dotnettools.csdevkits",
                 "ms-dotnettools.csharp",
-                "kreativ-software.csharpextensions"
+                "ms-dotnettools.csdevkit"
             ]
         }
     }

@@ -1,15 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>Flow.Tests</AssemblyName>
-    <Version>1.0.0</Version>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(ContinuousIntegrationBuild)' == 'true'">
-    <TargetFramework>net8.0</TargetFramework>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -26,11 +17,10 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
-    <Using Include="NFluent" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../Flow/Flow.csproj" />
+    <ProjectReference Include="..\Flow\Flow.csproj" />
   </ItemGroup>
 
 </Project>

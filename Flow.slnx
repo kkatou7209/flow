@@ -1,4 +1,0 @@
-<Solution>
-  <Project Path="Flow/Flow.csproj" />
-  <Project Path="Flow.Tests/Flow.Tests.csproj" />
-</Solution>

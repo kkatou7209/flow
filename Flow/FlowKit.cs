@@ -1,16 +1,12 @@
-using Flow.Loggers.Files.Builders;
+﻿using System;
 
-namespace Flow;
-
-/// <summary>
-/// The Flow library API.
-/// </summary>
-public static class FlowKit
+namespace Flow
 {
     /// <summary>
-    /// Creates logger for logging to file.
+    /// This is entry point of all loggers in Flow.
     /// </summary>
-    /// <param name="path">Path to log file.</param>
-    /// <returns></returns>
-    public static LoggerFactory Create() => new();
+    public static class FlowKit
+    {
+
+    }
 }
