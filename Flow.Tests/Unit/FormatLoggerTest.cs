@@ -1,3 +1,4 @@
+using System.Text;
 using NFluent;
 
 namespace Flow.Tests.Unit;
@@ -10,7 +11,7 @@ public sealed class FormatLoggerTest : IDisposable
     public async Task Should_Logs_With_Formatting()
     {
         using var logger = new FormatLogger<dynamic>(
-            new Logger(path),
+            new Logger(path, Encoding.Default, 4069, 10),
             obj => $"[{obj.DateTime?.ToString("HH:mm:ss")}] {obj.Exception.GetType()?.Name}: {obj.Exception?.Message}"
         );
 
@@ -27,7 +28,7 @@ public sealed class FormatLoggerTest : IDisposable
         Check.That(log).IsEqualTo(
             """
             [12:43:18] InvalidProgramException: Error occured.
-            
+
             """
         );
     }

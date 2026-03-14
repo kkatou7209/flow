@@ -12,7 +12,7 @@ public sealed class LoggerTest : IDisposable
     [Fact]
     public void Should_Log_To_File()
     {
-        using var logger = new Logger(path);
+        using var logger = new Logger(path, Encoding.Default, 4069, 10);
 
         logger.Log("[12:30:37] GET /user/1 HTTP/2");
         logger.Log("[12:30:54] DELETE /user/4 HTTP/2");
@@ -33,7 +33,7 @@ public sealed class LoggerTest : IDisposable
     [Fact(Timeout = 3000)]
     public async Task Should_Log_Sequencially_From_Multiple_Thread()
     {
-        using var logger = new Logger(pathAsync);
+        using var logger = new Logger(pathAsync, Encoding.Default, 4069, 1200);
 
         const string LOG = "Log from multiple thread";
 

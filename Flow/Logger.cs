@@ -5,18 +5,25 @@ using System.Threading.Tasks;
 
 namespace Flow
 {
-    public sealed class Logger : ILogging, IDisposable
+    public sealed class Logger : IDisposable
     {
         private readonly LogChannel channel;
 
-        public Logger() : this(Console.Out) {}
-
-        public Logger(TextWriter writer, int capacity = 50_000)
+        public Logger(TextWriter writer, int capacity)
         {
             this.channel = new LogChannel(writer, capacity);
         }
 
-        public Logger(string path, Encoding encoding = null, int bufferSize = 64_000, int capacity = 30_000)
+        public Logger(Stream stream, Encoding encoding, int capacity)
+            : this(
+                new StreamWriter(
+                    stream,
+                    encoding
+                ),
+                capacity
+            ) {}
+
+        public Logger(string path, Encoding encoding, int bufferSize, int capacity)
             : this(
                 new StreamWriter(
                     new FileStream(
@@ -42,27 +49,10 @@ namespace Flow
             this.channel.TrySend(log);
         }
 
-        public void Log(string path, string log, Encoding encoding = null)
-        {
-            File.AppendAllLines(
-                path,
-                new string[] { log },
-                encoding ?? Encoding.Default
-            );
-        }
-
         public async Task LogAsync(string log)
         {
-            this.channel.Send(log);
-        }
-
-        public async Task LogAsync(string path, string log, Encoding encoding = null)
-        {
-            File.AppendAllLines(
-                path,
-                new string[] { log },
-                encoding ?? Encoding.Default
-            );
+            await Task.Run(() => this.channel.Send(log))
+                .ConfigureAwait(false);
         }
     }
 }

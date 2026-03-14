@@ -3,21 +3,24 @@ using System.Threading.Tasks;
 
 namespace Flow
 {
+    public delegate string LogFormatter<T>(T log);
+
     public sealed class FormatLogger<T> : IDisposable
     {
         private readonly Logger logger;
-        private readonly Func<T, string> format;
 
-        public FormatLogger(Logger logger, Func<T, string> format)
+        private readonly LogFormatter<T> formatter;
+
+        public FormatLogger(Logger logger, LogFormatter<T> formatter)
         {
             if (logger is null)
                 throw new ArgumentNullException(nameof(logger));
 
-            if (format is null)
-                throw new ArgumentNullException(nameof(format));
+            if (formatter is null)
+                throw new ArgumentNullException(nameof(formatter));
 
             this.logger = logger;
-            this.format = format;
+            this.formatter = formatter;
         }
 
         public void Dispose()
@@ -27,12 +30,12 @@ namespace Flow
 
         public void Log(T log)
         {
-            this.logger.Log(this.format(log));
+            this.logger.Log(this.formatter(log));
         }
 
-        public async Task LogAsync(T log)
+        public Task LogAsync(T log)
         {
-            await this.logger.LogAsync(this.format(log));
+            return this.logger.LogAsync(this.formatter(log));
         }
     }
 }
