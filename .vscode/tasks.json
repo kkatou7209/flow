@@ -1,0 +1,121 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build: Debug (Flow)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["build", "Flow", "--configuration", "Debug"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build: Release (Flow)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["build", "Flow", "--configuration", "Release"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Clean: Debug (Flow)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["clean", "Flow", "--configuration", "Debug"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Clean: Release (Flow)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["clean", "Flow", "--configuration", "Release"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build: Debug (Flow.Tests)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["build", "Flow.Tests", "--configuration", "Debug"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build: Release (Flow.Tests)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["build", "Flow.Tests", "--configuration", "Release"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Clean: Debug (Flow.Tests)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["clean", "Flow.Tests", "--configuration", "Debug"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Clean: Release (Flow.Tests)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["clean", "Flow.Tests", "--configuration", "Release"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Test: Debug (Flow.Tests)",
+            "type": "shell",
+            "dependsOn": "Build: Debug (Flow.Tests)",
+            "command": "dotnet",
+            "args": ["test", "Flow.Tests", "--configuration", "Debug"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Test: Release (Flow.Tests)",
+            "type": "shell",
+            "dependsOn": "Build: Release (Flow.Tests)",
+            "command": "dotnet",
+            "args": ["test", "Flow.Tests", "--configuration", "Release"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build: Debug (Solution)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["build", "Flow.slnx", "--configuration", "Debug"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build: Release (Solution)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["build", "Flow.slnx", "--configuration", "Release"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Clean: Debug (Solution)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["clean", "Flow.slnx", "--configuration", "Debug"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Clean: Release (Solution)",
+            "type": "shell",
+            "command": "dotnet",
+            "args": ["clean", "Flow.slnx", "--configuration", "Release"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Test: Debug (Solution)",
+            "type": "shell",
+            "dependsOn": "Build: Debug (Solution)",
+            "command": "dotnet",
+            "args": ["test", "Flow.slnx", "--configuration", "Debug"],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Test: Release (Solution)",
+            "type": "shell",
+            "dependsOn": "Build: Release (Solution)",
+            "command": "dotnet",
+            "args": ["test", "Flow.slnx", "--configuration", "Release"],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
