@@ -55,5 +55,14 @@ namespace Flow
         {
             this.channel.Send(log);
         }
+
+        public async Task LogAsync(string path, string log, Encoding encoding = null)
+        {
+            File.AppendAllLines(
+                path,
+                new string[] { log },
+                encoding ?? Encoding.Default
+            );
+        }
     }
 }
