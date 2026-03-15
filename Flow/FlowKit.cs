@@ -110,7 +110,7 @@ namespace Flow
         /// <returns></returns>
         public static FormatLogger<T> Create<T>(
             LogFormatter<T> formatter,
-            string path, int bufferSize = 64_000, Encoding encoding = null, int capacity = 30_000
+            string path, Encoding encoding = null, int bufferSize = 64_000, int capacity = 30_000
         ) => new FormatLogger<T>(
             Create(path, bufferSize, encoding, capacity),
             formatter
