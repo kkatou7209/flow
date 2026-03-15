@@ -1,0 +1,15 @@
+{
+    "name": "Flow: .NET",
+    "dockerComposeFile": "compose.yml",
+    "service": "dotnet",
+    "workspaceFolder": "/workspace",
+    "postCreateCommand": "dotnet restore",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.csharp",
+                "ms-dotnettools.csdevkit"
+            ]
+        }
+    }
+}

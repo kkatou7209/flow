@@ -1,0 +1,8 @@
+name: Flow
+
+services:
+  dotnet:
+    build: .
+    volumes:
+      - ../:/workspace
+    tty: true
